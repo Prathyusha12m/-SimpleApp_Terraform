@@ -103,10 +103,6 @@ stages :
         displayName: 'Terraform_plan_dev'
         continueOnError: false
         steps:
-        - task: TerraformInstaller@0
-          displayName: 'install'
-          inputs:
-           terraformVersion: 'latest'
         - task: TerraformTaskV2@2
           displayName: init
           inputs:
