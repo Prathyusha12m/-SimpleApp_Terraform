@@ -171,7 +171,7 @@ stages :
             commandOptions: '-input=false -auto-approve -var-file="config.tfvars"'
             environmentServiceNameAzureRM: '$(serviceconnection)'
             workingDirectory: '$(working_directory)'
-          - task: AzureCLI@2
+        - task: AzureCLI@2
             inputs:
               azureSubscription: 'Free Trial'
               scriptType: 'bash'
