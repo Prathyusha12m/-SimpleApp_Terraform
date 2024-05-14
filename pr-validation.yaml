@@ -8,29 +8,27 @@ name: $(BuildDefinitionName)_$(date:yyyyMMdd)$(rev:.r)
 
 trigger: none
 
-
 variables:
  - name: 'serviceconnection'
-   value: 'fitnessgeek-sc'
+   value: 'azure'
 
  - name: 'environment'
    value: 'dev'
 
  - name: 'backend_rg'
-   value: 'terraform-backend'
+   value: 'casestudy'
 
  - name: 'backend_storageaccount'
-   value: 'terraformbackend2023'
+   value: 'dq8ccsvault1asrcache'
 
  - name: 'backend_container'
-   value: 'terraform'
+   value: 'terraformct'
 
  - name: 'backendkey_tfstate'
    value: 'terraform.tfstate'
 
  - name: 'working_directory'
    value: '$(System.DefaultWorkingDirectory)'
-
 
 
 pool:
