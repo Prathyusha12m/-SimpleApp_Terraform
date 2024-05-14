@@ -7,13 +7,8 @@ terraform {
     }
   }
 
-  required_version = ">= 1.1.0"
-  backend "azurerm" {}
-
-}
-
 resource "azurerm_resource_group" "rg" {
-  name     = "Fitnessgeek-rg"
+  name     = "casestudy"
   location = var.location-rg
   tags = {
     "Application" = "DemoApp"
