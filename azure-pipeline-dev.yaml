@@ -171,7 +171,7 @@ stages :
             inlineScript: |
               agentIP=$(curl -s https://api.ipify.org/)
               az storage account network-rule add -g xxx --account-name xxx --ip-address $agentIP
-                 sleep 300
+                 sleep 20
         
         - task: TerraformTaskV2@2
           displayName: 'apply'
