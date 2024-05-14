@@ -7,11 +7,6 @@ terraform {
     }
   }
 }
-
-provider "azurerm" {
-  features {}
-}
-
 resource "azurerm_resource_group" "rg" {
 name = "Fitnessgeek-rg"
 location = var.location-rg
