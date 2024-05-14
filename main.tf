@@ -8,7 +8,8 @@ terraform {
   }
 }
 resource "azurerm_resource_group" "rg" {
-  location = var.location-rg
+name = "casestudy.rg"
+location = var.location-rg
   tags = {
     "Application" = "DemoApp"
   }
