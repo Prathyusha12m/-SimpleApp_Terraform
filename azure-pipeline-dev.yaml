@@ -44,7 +44,7 @@ stages :
       - task: TerraformTaskV2@2
         displayName: 'init'
         inputs:
-          provider: 'azurerm'
+          provider: 'azure'
           command: 'init'
           backendServiceArm: $(serviceconnection)
           backendAzureRmResourceGroupName: '$(backend_rg)'
@@ -55,7 +55,7 @@ stages :
       - task: TerraformTaskV2@2
         displayName: 'validate'
         inputs:
-          provider: 'azurerm'
+          provider: 'azure'
           command: 'validate' 
 
   - stage: Plan_Apply_dev
@@ -73,7 +73,7 @@ stages :
         - task: TerraformTaskV2@2
           displayName: init
           inputs:
-            provider: 'azurerm'
+            provider: 'azure'
             command: 'init'
             backendServiceArm: $(serviceconnection)
             backendAzureRmResourceGroupName: '$(backend_rg)'
@@ -84,7 +84,7 @@ stages :
         - task: TerraformTaskV2@2
           displayName: plan
           inputs:
-            provider: 'azurerm'
+            provider: 'azure'
             command: 'plan'
             commandOptions: '-var-file="config.tfvars" -out main.tfplan'
             environmentServiceNameAzureRM: $(serviceconnection)
@@ -147,7 +147,7 @@ stages :
         - task: TerraformTaskV2@2
           displayName: 'init'
           inputs:
-            provider: 'azurerm'
+            provider: 'azure'
             command: 'init'
             backendServiceArm: $(serviceconnection)
             backendAzureRmResourceGroupName: '$(backend_rg)'
@@ -164,7 +164,7 @@ stages :
         - task: TerraformTaskV2@2
           displayName: 'plan'
           inputs:
-            provider: 'azurerm'
+            provider: 'azure'
             command: 'plan'
             commandOptions: '-input=false -var-file="config.tfvars"'
             environmentServiceNameAzureRM: '$(serviceconnection)'
@@ -173,7 +173,7 @@ stages :
         - task: TerraformTaskV2@2
           displayName: 'apply'
           inputs:
-            provider: 'azurerm'
+            provider: 'azure'
             command: 'apply'
             commandOptions: '-input=false -auto-approve -var-file="config.tfvars"'
             environmentServiceNameAzureRM: '$(serviceconnection)'
