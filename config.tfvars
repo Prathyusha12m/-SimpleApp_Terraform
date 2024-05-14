@@ -1,1 +1,1 @@
-location-rg = "useast"
+location-rg = "east us"
