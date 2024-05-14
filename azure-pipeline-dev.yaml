@@ -9,7 +9,7 @@ trigger:
 
 variables:
  - name: 'serviceconnection'
-   value: 'Free Trial (f62c1351-b0e5-4a98-9ee9-c04070490d82)-sc'
+   value: 'azure'
 
  - name: 'environment'
    value: 'dev'
