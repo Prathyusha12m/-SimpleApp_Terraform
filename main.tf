@@ -8,7 +8,7 @@ terraform {
   }
 }
 provider "azurerm" {
-   feautures {}
+   features {}
 }
 
 resource "azurerm_resource_group" "rg" {
