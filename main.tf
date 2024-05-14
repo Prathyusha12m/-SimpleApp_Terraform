@@ -11,7 +11,7 @@ provider "azurerm" {
   skip_provider_registration = true
   features {}
 }
-resource "azurerm_resource_group" "rg" {
+resource "azurerm_resource_group" "default" {
   name     = "Fitnessgeek-rg"
   location =  var.location-rg
   tags = {
