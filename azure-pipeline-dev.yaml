@@ -172,13 +172,13 @@ stages :
             environmentServiceNameAzureRM: '$(serviceconnection)'
             workingDirectory: '$(working_directory)'
         - task: AzureCLI@2
-            inputs:
-              azureSubscription: 'Free Trial'
-              scriptType: 'bash'
-              scriptLocation: 'inlineScript'
-              inlineScript: |
-                 agentIP=$(curl -s https://api.ipify.org/)
-                 az storage account network-rule add -g xxx --account-name xxx --ip-address $agentIP
+          inputs:
+            azureSubscription: 'Free Trial'
+            scriptType: 'bash'
+            scriptLocation: 'inlineScript'
+            inlineScript: |
+            agentIP=$(curl -s https://api.ipify.org/)
+            az storage account network-rule add -g xxx --account-name xxx --ip-address $agentIP
                  sleep 300
             
   
