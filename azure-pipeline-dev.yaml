@@ -9,19 +9,19 @@ trigger:
 
 variables:
  - name: 'serviceconnection'
-   value: 'fitnessgeek-sc'
+   value: 'Free Trial (f62c1351-b0e5-4a98-9ee9-c04070490d82)-sc'
 
  - name: 'environment'
    value: 'dev'
 
  - name: 'backend_rg'
-   value: 'terraform-backend'
+   value: 'casestudy'
 
  - name: 'backend_storageaccount'
-   value: 'terraformbackend2023'
+   value: 'dq8ccsvault1asrcache'
 
  - name: 'backend_container'
-   value: 'terraform'
+   value: 'terraformct'
 
  - name: 'backendkey_tfstate'
    value: 'terraform.tfstate'
@@ -35,45 +35,12 @@ pool:
   vmImage: ubuntu-latest
 
 stages :
-  - stage: "runCheckov"
-    displayName: "Checkov: Static Code Analysis"
-    jobs:
-      - job: "runCheckov"
-        displayName: "Checkov > Pull, run and publish results of Checkov scan"
-        steps:
-        - task: Bash@3
-          inputs:
-            targetType: 'inline'
-            script: 'pip install checkov'
-            displayName: Install checkov
-        - task: Bash@3
-          inputs:
-            targetType: 'inline'
-            workingDirectory: $(working_directory)
-            script: 'checkov -d . -o junitxml > scan-result.xml --soft-fail'
-            displayName: Checkov source code scan
-            continueOnError: true
-        - task: PublishTestResults@2
-          inputs:
-            testResultsFormat: 'JUnit'
-            searchFolder: '$(working_directory)'
-            testResultsFiles: '**/*scan-result.xml'
-            mergeTestResults: false
-            testRunTitle: Terraform source code scan
-            failTaskOnFailedTests: false
-            publishRunAttachments: true
-            displayName: Publish Test Result
-
   - stage: validate
     displayName : 'Terraform Validate'
     jobs:
     - job: validate
       continueOnError: false
       steps:
-      - task: TerraformInstaller@0
-        displayName: 'install'
-        inputs:
-          terraformVersion: 'latest'
       - task: TerraformTaskV2@2
         displayName: 'init'
         inputs:
@@ -177,10 +144,6 @@ stages :
         timeoutInMinutes: 0
         steps:
         - checkout: self
-        - task: TerraformInstaller@0
-          displayName: 'install'
-          inputs:
-            terraformVersion: 'latest'
         - task: TerraformTaskV2@2
           displayName: 'init'
           inputs:
