@@ -8,7 +8,7 @@ terraform {
   }
 
 resource "azurerm_resource_group" "rg" {
-  name     = "casestudy"
+  name     = "MC_casestudy_cs1_eastus"
   location = var.location-rg
   tags = {
     "Application" = "DemoApp"
