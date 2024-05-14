@@ -8,8 +8,8 @@ terraform {
   }
 }
 resource "azurerm_resource_group" "rg" {
-name = "Fitnessgeek-rg"
-location = var.location-rg
+  name     = "fitnessgeek-rg"
+  location = var.location-rg
   tags = {
     "Application" = "DemoApp"
   }
