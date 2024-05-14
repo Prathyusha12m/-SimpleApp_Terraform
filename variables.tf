@@ -1,4 +1,4 @@
 variable "location-rg" {
-  description = "This is variable for location"  
+  description = "east us"  
   
 }
