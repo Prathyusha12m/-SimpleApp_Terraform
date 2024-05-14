@@ -163,14 +163,6 @@ stages :
             commandOptions: '-input=false -var-file="config.tfvars"'
             environmentServiceNameAzureRM: '$(serviceconnection)'
             workingDirectory: '$(working_directory)'
-
-        - task: TerraformTaskV2@2
-          displayName: 'apply'
-          inputs:
-            command: 'apply'
-            commandOptions: '-input=false -auto-approve -var-file="config.tfvars"'
-            environmentServiceNameAzureRM: '$(serviceconnection)'
-            workingDirectory: '$(working_directory)'
         - task: AzureCLI@2
           inputs:
             azureSubscription: 'Azure'
@@ -180,6 +172,15 @@ stages :
               agentIP=$(curl -s https://api.ipify.org/)
               az storage account network-rule add -g xxx --account-name xxx --ip-address $agentIP
                  sleep 300
+        
+        - task: TerraformTaskV2@2
+          displayName: 'apply'
+          inputs:
+            command: 'apply'
+            commandOptions: '-input=false -auto-approve -var-file="config.tfvars"'
+            environmentServiceNameAzureRM: '$(serviceconnection)'
+            workingDirectory: '$(working_directory)'
+
             
   
             
