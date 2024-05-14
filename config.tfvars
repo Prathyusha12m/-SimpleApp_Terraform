@@ -1,1 +1,1 @@
-location-rg = "uksouth"
+location-rg = "useast"
