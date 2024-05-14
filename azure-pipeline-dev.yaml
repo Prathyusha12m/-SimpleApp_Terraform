@@ -173,7 +173,7 @@ stages :
             workingDirectory: '$(working_directory)'
         - task: AzureCLI@2
           inputs:
-            azureSubscription: 'Free Trial'
+            azureSubscription: 'Azure'
             scriptType: 'bash'
             scriptLocation: 'inlineScript'
             inlineScript: |
