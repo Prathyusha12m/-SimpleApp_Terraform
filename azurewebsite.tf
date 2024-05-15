@@ -30,13 +30,13 @@ resource "azurerm_linux_web_app" "fe-webapp" {
 
 #Backend
 #storage account for functionapp
-resource "azurerm_storage_account" "fn-storageaccount" {
-  name                     = "fgfunctionappsa2023"
-  resource_group_name      = azurerm_resource_group.rg.name
-  location                 = azurerm_resource_group.rg.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
+#resource "azurerm_storage_account" "fn-storageaccount" {
+#  name                     = "fgfunctionappsa2023"
+#  resource_group_name      = azurerm_resource_group.rg.name
+#  location                 = azurerm_resource_group.rg.location
+#  account_tier             = "Standard"
+#  account_replication_type = "LRS"
+#}
 
 resource "azurerm_linux_function_app" "be-fnapp" {
   name                = "be-function-app"
