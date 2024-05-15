@@ -19,7 +19,7 @@ resource "azurerm_key_vault_secret" "sqladminpassword" {
 
 #Azure sql database
 resource "azurerm_mssql_server" "azuresql" {
-  name                         = "fg-sqldb-prod"
+  name                         = "fg-sqldb-cs3"
   resource_group_name          = azurerm_resource_group.rg.name
   location                     = azurerm_resource_group.rg.location
   version                      = "12.0"
